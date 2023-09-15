@@ -8,7 +8,9 @@ app.get('/', (req, res) => {
     res.send("Tyler Blotter");
 });
 
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.get('/madi', (req, res) => {
+    res.send("Madi Blotter");
 });
+
+app.listen(process.env.PORT || PORT);
+console.log("Web Server is listening at port " + (process.env.PORT || PORT));
