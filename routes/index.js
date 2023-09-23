@@ -1,3 +1,7 @@
-const lesson1Controller = require('./controllers/lesson1.js')
+const express = require('express');
+const router = express.Router();
 
-module.exports = routes;
+router.use('/contacts', require('./contacts'))
+
+
+module.exports = router;
