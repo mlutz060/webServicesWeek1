@@ -1,14 +1,23 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const lesson1Controller = require('./controllers/lesson1');
+const bodyParser = require('body-parser');
+const mongodb = require('./database/connect');
 
+const port = process.env.PORT || 3000;
 const app = express();
-const PORT = 3000;
 
-app.get('/', lesson1Controller.tylerRoute);
-app.get('/madi', lesson1Controller.madiRoute);
+app
+  .use(bodyParser.json())
+  .use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  })
+  .use('/', require('./routes'));
 
-
-
-app.listen(process.env.PORT || PORT);
-console.log("Web Server is listening at port " + (process.env.PORT || PORT));
+mongodb.initDb((err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    app.listen(port);
+    console.log(`Connected to DB and listening on ${port}`);
+  }
+});
