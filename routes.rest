@@ -34,3 +34,41 @@ content-type: application/json
 ### DELETE contact
 DELETE http://localhost:3000/contacts/6518d7cd2e1b5d80d4834af2 HTTP/1.1
 
+
+
+
+
+### Get all contacts
+GET https://madi341-1.onrender.com/contacts
+
+
+### Get contact by id
+GET https://madi341-1.onrender.com/650f3e4145480ef68098255d
+
+
+### Create contact
+POST https://madi341-1.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Madison",
+    "lastName":"Blotter",
+    "email":"madiblotter@gmail.com",
+    "favoriteColor":"green",
+    "birthday":"March 20, 2001"
+}
+
+
+### PUT contact
+PUT https://madi341-1.onrender.com/contacts/6518d595004991afcc954570 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Chloe",
+    "lastName":"Lutz",
+    "email":"chloeelutz@gmail.com",
+    "favoriteColor":"green",
+    "birthday":"April 9, 2004"
+}
+### DELETE contact
+DELETE https://madi341-1.onrender.com/contacts/6518d7cd2e1b5d80d4834af2 HTTP/1.1
